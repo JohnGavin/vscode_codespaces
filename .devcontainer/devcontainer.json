@@ -15,7 +15,8 @@
 			//"BASE_IMAGE": "analythium/r2u-quarto",
 			//"BASE_IMAGE": "eddelbuettel/r2u4",
 			// Options
-			"ENABLE_JUPYTER": "false"
+			"ENABLE_JUPYTER": "false",
+			"UPGRADE_PACKAGES": "false"
 		}
 	},
 
