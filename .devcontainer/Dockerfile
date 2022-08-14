@@ -83,6 +83,9 @@ RUN install2.r --error --skipinstalled --ncpus -1 \
     tidyverse \
     # footBayes \
     renv remotes 
+    # targets tarchetypes pacman janitor import
+    # fusen recipes tinytest 
+    # 
 # Install packages (incl. remotes) for handler.R from DESCRIPTION
 # RUN R -q -e 'remotes::install_deps()'
 # Install VersionedPackages for handler.R from DESCRIPTION
