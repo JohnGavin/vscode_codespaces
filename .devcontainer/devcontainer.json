@@ -16,7 +16,13 @@
 			//"BASE_IMAGE": "eddelbuettel/r2u4",
 			// Options
 			"ENABLE_JUPYTER": "false",
+			"UPGRADE_PACKAGES": "false",
+			"RSTUDIO_CONFIG_DIR": "/workspaces/vscode_codespaces/.config/rstudio",
+			"USERNAME": "rstudio",
+			"INSTALL_ZSH": "true",
+			"INSTALL_FISH": "false",
 			"UPGRADE_PACKAGES": "false"
+
 		}
 	},
 
