@@ -1,5 +1,5 @@
 import pandas as pd
-pd.__version__
+print(pd.__version__)
 
 
 def my_function(name = "World"):
@@ -19,8 +19,8 @@ instance
 #> <__main__.MyClass object at 0x7fd01b4d2c10>
 type(instance)
 #> <class '__main__.MyClass'>
-
-dir(MyClass)
+from pprint import pprint as pp
+pp(dir(MyClass))
 
 class MyClass:
 
