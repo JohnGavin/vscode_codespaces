@@ -1,1 +1,5 @@
-{}
+{
+    "default_project_location": "/workspaces/vscode_codespaces/rstudio", // "~",
+    "initial_working_directory": "/workspaces/vscode_codespaces/rstudio", // "~",
+    "posix_terminal_shell": "bash"
+}
