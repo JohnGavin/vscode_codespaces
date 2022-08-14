@@ -1,3 +1,4 @@
+
 # [Choice] R version: 4, 4.2, 4.1, 4.0
 ARG VARIANT=4 
 # Minimal (r-ver): rocker/r-ver
@@ -9,13 +10,17 @@ FROM ${BASE_IMAGE}:${VARIANT}
 # FROM eddelbuettel/r2u:22.04
           
 
-# [Option] Install zsh
+# [Option from ./devcontainers.json] 
+# Install zsh
 ARG INSTALL_ZSH="true"
-# [Option] Upgrade OS packages to their latest versions
+# Upgrade OS packages to latest
 ARG UPGRADE_PACKAGES="false"
 
-# Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
+# Install needed packages and setup non-root user. 
+# Use a separate RUN statement to add your own dependencies.
 ARG USERNAME=rstudio
+# move rstudio home directory
+ARG RSTUDIO_HOME=/workspaces/vscode_codespaces/${USERNAME}
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 USER root
@@ -70,15 +75,6 @@ RUN if [ "${ENABLE_JUPYTER}" = "true" ]; then \
 #     && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-# RUN sudo adduser ${USERNAME}
-RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
-#RUN sudo echo "${USERNAME}:${USERNAME}" |  chpasswd 
-#RUN sudo echo "rstudio:rstudio" |  chpasswd 
-#RUN sudo passwd -d rstudio && passwd -l rstudio
-
-# RUN sudo chown ${USERNAME}:${USERNAME} -R /home/${USERNAME}
-# RUN sudo chown vscode:vscode -R /home/vscode
-# WORKDIR /home/${USERNAME}
 
 # [Optional] Uncomment this section to install additional R packages.
 #RUN install2.r --error --skipinstalled --ncpus -1 \
@@ -87,12 +83,14 @@ RUN install2.r --error --skipinstalled --ncpus -1 \
     tidyverse \
     # footBayes \
     renv remotes 
+# Install packages (incl. remotes) for handler.R from DESCRIPTION
+# RUN R -q -e 'remotes::install_deps()'
+# Install VersionedPackages for handler.R from DESCRIPTION
+# RUN R -q -e 'source("/usr/local/bin/install.R");install$versioned()'
+
 RUN python3 -m pip --no-cache-dir install pandas
 
-# USER root
-# USER ${USERNAME}
-# CMD ["/init"]
-# CMD ["ipython3"]
+
 
 # rocker/binder" includes rstudio and quarto
 #RUN /rocker_scripts/install_pandoc.sh
@@ -102,3 +100,21 @@ RUN python3 -m pip --no-cache-dir install pandas
 
 # docker compose
 #    env_file: .env
+
+# RUN sudo adduser ${USERNAME}
+# is rstudio in group rstudio?
+# RUN sudo chown ${USERNAME}:${USERNAME} -R ${RSTUDIO_HOME}
+
+# reset password to rstudio
+RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
+#RUN sudo echo "${USERNAME}:${USERNAME}" |  chpasswd 
+#RUN sudo echo "rstudio:rstudio" |  chpasswd 
+#RUN sudo passwd -d rstudio && passwd -l rstudio
+
+WORKDIR ${RSTUDIO_HOME}
+# WORKDIR /home/${USERNAME}
+
+# USER root
+# USER ${USERNAME}
+# CMD ["/init"]
+# CMD ["ipython3"]
