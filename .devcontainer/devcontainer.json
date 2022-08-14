@@ -3,7 +3,7 @@
 {
 	"name": "R (Community)",
 	"runArgs": [
-		"--env-file", "/workspaces/vscode_codespaces/.devcontainer/.env"
+		//"--env-file", "~/.devcontainer/.env"
 		// "--env-file", "${localEnv:PWD}/.devcontainer/.env"
 	], 
 	"containerEnv": { 
@@ -29,7 +29,7 @@
 			//"BASE_IMAGE": "eddelbuettel/r2u4",
 			// Options
 			"ENABLE_JUPYTER": "false",
-			"UPGRADE_PACKAGES": "false",
+			"UPGRADE_PACKAGES": "true",
 			"USERNAME": "rstudio",
 			"INSTALL_ZSH": "true",
 			"INSTALL_FISH": "false",
@@ -54,7 +54,7 @@
 			// Set *default* container specific settings.json values on container create.
 			"settings": { 
 				"r.bracketedPaste": true,
-				"r.plot.useHttpgd": true,
+				"r.plot.useHttpgd": false,
 				"[r]": {
 					"editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
 				},
