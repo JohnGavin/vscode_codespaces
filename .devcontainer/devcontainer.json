@@ -3,7 +3,8 @@
 {
 	"name": "R (Community)",
 	"runArgs": [
-		"--env-file", "${localEnv:PWD}/.devcontainer/.env"
+		"--env-file", "/workspaces/vscode_codespaces/.devcontainer/.env"
+		// "--env-file", "${localEnv:PWD}/.devcontainer/.env"
 	], 
 	"containerEnv": { 
 		//${localEnv:MY_VARIABLE}
