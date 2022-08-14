@@ -2,6 +2,18 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/r
 {
 	"name": "R (Community)",
+	"runArgs": [
+		"--env-file", "${localEnv:PWD}/.devcontainer/.env"
+	], 
+	"containerEnv": { 
+		//${localEnv:MY_VARIABLE}
+		"RSTUDIO_CONFIG_HOME": "/workspaces/vscode_codespaces/.config/rstudio",
+		"RSTUDIO_VERSION": "2022.02.1-461",
+		// 2022.07.0+548
+		"S6_VERSION": "v2.1.0.2" 
+		// =v1.21.7.0
+		//"MY_VARIABLE": "${localEnv:MY_VARIABLE}" 
+	},
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
@@ -17,7 +29,6 @@
 			// Options
 			"ENABLE_JUPYTER": "false",
 			"UPGRADE_PACKAGES": "false",
-			"RSTUDIO_CONFIG_DIR": "/workspaces/vscode_codespaces/.config/rstudio",
 			"USERNAME": "rstudio",
 			"INSTALL_ZSH": "true",
 			"INSTALL_FISH": "false",
