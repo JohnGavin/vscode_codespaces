@@ -1,12 +1,5 @@
-// RStudio writes this file whenever you change a setting, you can also edit it yourself to change settings. You can back it up, or put it in a version control system.
-// RUN sudo cp -urv "/workspaces/vscode_codespaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
-
 {
-  "default_project_location": "/workspaces/vscode_codespaces/rstudio", // "~",
-  "initial_working_directory": "/workspaces/vscode_codespaces/rstudio", // "~",
+    "initial_working_directory": "~",
     "posix_terminal_shell": "bash",
-    "font_size_points": 12,
-    "editor_theme": "Tomorrow Night 80s",
-  "show_user_home_page": "always"
-
+    "editor_theme": "Dracula"
 }
