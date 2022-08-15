@@ -37,9 +37,7 @@
 			"UPGRADE_PACKAGES": "true",
 			"USERNAME": "rstudio",
 			"INSTALL_ZSH": "true",
-			"INSTALL_FISH": "false",
-			"UPGRADE_PACKAGES": "false"
-
+			"INSTALL_FISH": "false"
 		}
 	},
 
