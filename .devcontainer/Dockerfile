@@ -117,7 +117,7 @@ RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
 WORKDIR ${RSTUDIO_HOME}
 # WORKDIR /home/${USERNAME}
 # 
-RUN sudo cp -urv "/workspaces/vscode_codespaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
+# RUN sudo cp -urv "/workspaces/vscode_codespaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
 # copy from .devcontainer from github into /home/rstudio
 #RUN sudo cp -urv "/workspaces/vscode_codespaces/rstudio" "/home/rstudio"
 # copy rstudio changes back into .devcontainer

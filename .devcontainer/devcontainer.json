@@ -137,7 +137,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "R --version",
-	"postCreateCommand": "sudo rstudio-server start",
+	"postCreateCommand": "sudo cp -urv /workspaces/vscode_codespaces/.config/rstudio/rstudio-prefs.json.copy /etc/rstudio/rstudio-prefs.json && sudo rstudio-server start",
 	//# The post-create command (see `.devcontainer/devcontainer.json`) runs
 	//# a `generate.sh` script that replaces the ${WORKSPACE_FOLDER} variables
 	//# in this file with the correct paths. The resulting config file is
