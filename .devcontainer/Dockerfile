@@ -115,7 +115,8 @@ RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
 #RUN sudo passwd -d rstudio && passwd -l rstudio
 
 WORKDIR ${RSTUDIO_HOME}
-RUN sudo ln -s /home/rstudio /workspaces/vscode_codespaces/rstudio
+RUN sudo rsync -avu --delete "/home/rstudio/" "/workspaces/vscode_codespaces/rstudio"  
+# RUN sudo ln -s /home/rstudio /workspaces/vscode_codespaces/rstudio
 # WORKDIR /home/${USERNAME}
 
 # USER root

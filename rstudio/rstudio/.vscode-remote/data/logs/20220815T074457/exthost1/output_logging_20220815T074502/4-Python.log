@@ -1,0 +1,29 @@
+Experiment 'pythonTensorboardExperiment' is active
+Experiment 'pythonSurveyNotificationcf' is active
+Experiment 'PythonPyTorchProfiler' is active
+LSP Notebooks experiment is enabled
+LSP Notebooks interactive window support is enabled
+> conda info --json
+> /usr/local/opt/python@3.9/bin/python3.9 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+[ERROR 2022-7-15 8:30:51.641]: [Error: Command failed: /usr/local/opt/python@3.9/bin/python3.9 /home/rstudio/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py /home/rstudio/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+/bin/sh: 1: /usr/local/opt/python@3.9/bin/python3.9: not found
+
+	at ChildProcess.exithandler (node:child_process:397:12)
+	at ChildProcess.emit (node:events:390:28)
+	at maybeClose (node:internal/child_process:1064:16)
+	at Socket.<anonymous> (node:internal/child_process:450:11)
+	at Socket.emit (node:events:390:28)
+	at Pipe.<anonymous> (node:net:687:12)] {
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: '/usr/local/opt/python@3.9/bin/python3.9 /home/rstudio/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py /home/rstudio/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py'
+}
+> /bin/python2 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+> /bin/python3 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+> /usr/bin/python2 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+> /usr/bin/python3 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/get_output_via_markers.py ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/interpreterInfo.py
+Starting Pylance language server.
+Python interpreter path: /usr/bin/python3
+> /usr/bin/python3 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/normalizeSelection.py
+> /usr/bin/python3 ~/.vscode-remote/extensions/ms-python.python-2022.12.0/pythonFiles/normalizeSelection.py
