@@ -1,6 +1,8 @@
 getwd()
 Sys.getenv('RETICULATE_PYTHON')
-Sys.setenv('RETICULATE_PYTHON'='/usr/bin/python3')
+#Sys.setenv('RETICULATE_PYTHON'='/usr/local/bin/ipython3')
+Sys.setenv('RETICULATE_PYTHON'="/usr/local/bin/ipython3")
+Sys.getenv('RETICULATE_PYTHON')
 library(reticulate, quietly = TRUE)
 py_available()
 py_discover_config()
@@ -25,6 +27,7 @@ pd <- import("pandas")
 #scipy$amin(c(1,3,5,7))
 
 repl_python()
+exit # or quit - NOT exit()
 # import pandas
 
 

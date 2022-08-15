@@ -9,11 +9,15 @@
 	"containerEnv": { 
 		//${localEnv:MY_VARIABLE}
 		"RSTUDIO_CONFIG_HOME": "/workspaces/vscode_codespaces/.config/rstudio",
+		"RETICULATE_PYTHON": "/usr/local/bin/ipython3",
 		"RSTUDIO_VERSION": "2022.02.1-461",
 		// 2022.07.0+548
-		"S6_VERSION": "v2.1.0.2" 
-		// =v1.21.7.0
-		//"MY_VARIABLE": "${localEnv:MY_VARIABLE}" 
+		"S6_VERSION": "v2.1.0.2",
+		"locEnvDEFAULT_USER": "${localEnv:DEFAULT_USER}",
+		"locEnvGITHUB_USER": "${localEnv:GITHUB_USER}",
+		"locEnvCODESPACE_NAME=": "${localEnv:CODESPACE_NAME}",
+		"locEnvPwd": "${localEnv:PWD}",
+		"locEnvHostname": "${localEnv:HOSTNAME}" 
 	},
 	"build": {
 		"dockerfile": "Dockerfile",
