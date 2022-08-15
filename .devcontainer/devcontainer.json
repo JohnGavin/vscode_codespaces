@@ -9,6 +9,7 @@
 	"containerEnv": { 
 		//${localEnv:MY_VARIABLE}
 		"RSTUDIO_CONFIG_HOME": "/workspaces/vscode_codespaces/.config/rstudio",
+		"RSTUDIO_HOME": "/workspaces/vscode_codespaces/rstudio",
 		"RETICULATE_PYTHON": "/usr/local/bin/ipython3",
 		"RSTUDIO_VERSION": "2022.02.1-461",
 		// 2022.07.0+548

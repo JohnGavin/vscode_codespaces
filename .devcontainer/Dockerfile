@@ -115,9 +115,12 @@ RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
 #RUN sudo passwd -d rstudio && passwd -l rstudio
 
 WORKDIR ${RSTUDIO_HOME}
+# WORKDIR /home/${USERNAME}
+# copy from .devcontainer from github into /home/rstudio
+RUN sudo cp -urv "/workspaces/vscode_codespaces/rstudio" "/home/rstudio"
+# copy rstudio changes back into .devcontainer
 RUN sudo rsync -avu --delete "/home/rstudio/" "/workspaces/vscode_codespaces/rstudio"  
 # RUN sudo ln -s /home/rstudio /workspaces/vscode_codespaces/rstudio
-# WORKDIR /home/${USERNAME}
 
 # USER root
 # USER ${USERNAME}
