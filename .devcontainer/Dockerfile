@@ -5,10 +5,10 @@ ARG VARIANT=4.2
 # tidyverse installed: rocker/tidyverse 
 # full image (binder): rocker/binder
 ARG BASE_IMAGE=rocker/r-ver
-# FROM ${BASE_IMAGE}:${VARIANT}
-FROM analythium/r2u-quarto
-# FROM eddelbuettel/r2u:22.04
-          
+# ARG BASE_IMAGE=rocker/r-ver
+FROM ${BASE_IMAGE}:${VARIANT}
+# FROM analythium/r2u-quarto
+# FROM eddelbuettel/r2u
 
 # [Option from ./devcontainers.json] 
 # Install zsh
@@ -79,26 +79,31 @@ RUN if [ "${ENABLE_JUPYTER}" = "true" ]; then \
 # [Optional] Uncomment this section to install additional R packages.
 #RUN install2.r --error --skipinstalled --ncpus -1 \
 #    footBayes
-RUN install2.r --error --skipinstalled --ncpus -1 \
+RUN install2.r --error --deps TRUE --skipinstalled --ncpus -1 \
     tidyverse \
+    # forcats broom \
     # footBayes \
     renv remotes \
     targets tarchetypes pacman janitor import \
-    brms
+    tidybayes
     # fusen recipes tinytest 
-    # 
+    # bookdown raw citr 
+RUN install2.r --error --deps TRUE --skipinstalled --ncpus -1 \
+    rstan \
+    brms
+
 # Install packages (incl. remotes) for handler.R from DESCRIPTION
 # RUN R -q -e 'remotes::install_deps()'
 # Install VersionedPackages for handler.R from DESCRIPTION
 # RUN R -q -e 'source("/usr/local/bin/install.R");install$versioned()'
 
-RUN python3 -m pip --no-cache-dir install pandas seaborn tensorflow
-
+RUN python3 -m pip --no-cache-dir install pandas seaborn scipy 
+# tensorflow need to install underlying library first.
 
 
 # rocker/binder" includes rstudio and quarto
-RUN /rocker_scripts/install_pandoc.sh
-RUN /rocker_scripts/install_quarto.sh
+#RUN /rocker_scripts/install_pandoc.sh
+#RUN /rocker_scripts/install_quarto.sh
 #RUN /rocker_scripts/install_rstudio.sh
 # EXPOSE 8787
 
@@ -118,7 +123,7 @@ RUN sudo usermod -p `perl -e "print crypt("rstudio","Q4")"` rstudio
 WORKDIR ${RSTUDIO_HOME}
 # WORKDIR /home/${USERNAME}
 # 
-# RUN sudo cp -urv "/workspaces/vscode_codespaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
+# RUN sudo cp -urv "/workspaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
 # copy from .devcontainer from github into /home/rstudio
 #RUN sudo cp -urv "/workspaces/vscode_codespaces/rstudio" "/home/rstudio"
 # copy rstudio changes back into .devcontainer
