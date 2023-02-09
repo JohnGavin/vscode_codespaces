@@ -1,12 +1,12 @@
 
 # [Choice] R version: 4, 4.2, 4.1, 4.0
-ARG VARIANT=4 
+ARG VARIANT=4.2
 # Minimal (r-ver): rocker/r-ver
 # tidyverse installed: rocker/tidyverse 
 # full image (binder): rocker/binder
 ARG BASE_IMAGE=rocker/r-ver
-FROM ${BASE_IMAGE}:${VARIANT}
-# FROM analythium/r2u-quarto
+# FROM ${BASE_IMAGE}:${VARIANT}
+FROM analythium/r2u-quarto
 # FROM eddelbuettel/r2u:22.04
           
 
@@ -14,7 +14,7 @@ FROM ${BASE_IMAGE}:${VARIANT}
 # Install zsh
 ARG INSTALL_ZSH="true"
 # Upgrade OS packages to latest
-ARG UPGRADE_PACKAGES="false"
+ARG UPGRADE_PACKAGES="true"
 
 # Install needed packages and setup non-root user. 
 # Use a separate RUN statement to add your own dependencies.
@@ -82,8 +82,9 @@ RUN if [ "${ENABLE_JUPYTER}" = "true" ]; then \
 RUN install2.r --error --skipinstalled --ncpus -1 \
     tidyverse \
     # footBayes \
-    renv remotes 
-    # targets tarchetypes pacman janitor import
+    renv remotes \
+    targets tarchetypes pacman janitor import \
+    brms
     # fusen recipes tinytest 
     # 
 # Install packages (incl. remotes) for handler.R from DESCRIPTION
@@ -91,13 +92,13 @@ RUN install2.r --error --skipinstalled --ncpus -1 \
 # Install VersionedPackages for handler.R from DESCRIPTION
 # RUN R -q -e 'source("/usr/local/bin/install.R");install$versioned()'
 
-RUN python3 -m pip --no-cache-dir install pandas
+RUN python3 -m pip --no-cache-dir install pandas seaborn tensorflow
 
 
 
 # rocker/binder" includes rstudio and quarto
-#RUN /rocker_scripts/install_pandoc.sh
-#RUN /rocker_scripts/install_quarto.sh
+RUN /rocker_scripts/install_pandoc.sh
+RUN /rocker_scripts/install_quarto.sh
 #RUN /rocker_scripts/install_rstudio.sh
 # EXPOSE 8787
 
