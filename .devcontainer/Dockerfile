@@ -20,7 +20,7 @@ ARG UPGRADE_PACKAGES="true"
 # Use a separate RUN statement to add your own dependencies.
 ARG USERNAME=rstudio
 # move rstudio home directory
-ARG RSTUDIO_HOME=/workspaces/vscode_codespaces/${USERNAME}
+ARG RSTUDIO_HOME=/workspaces/${USERNAME}
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 USER root
@@ -125,10 +125,10 @@ WORKDIR ${RSTUDIO_HOME}
 # 
 # RUN sudo cp -urv "/workspaces/.config/rstudio/rstudio-prefs.json.copy" "/etc/rstudio/rstudio-prefs.json"
 # copy from .devcontainer from github into /home/rstudio
-#RUN sudo cp -urv "/workspaces/vscode_codespaces/rstudio" "/home/rstudio"
+#RUN sudo cp -urv "/workspaces/rstudio" "/home/rstudio"
 # copy rstudio changes back into .devcontainer
-#RUN sudo rsync -avu --delete "/home/rstudio/" "/workspaces/vscode_codespaces/rstudio"  
-# RUN sudo ln -s /home/rstudio /workspaces/vscode_codespaces/rstudio
+#RUN sudo rsync -avu --delete "/home/rstudio/" "/workspaces/rstudio"  
+# RUN sudo ln -s /home/rstudio /workspaces/rstudio
 
 # USER root
 # USER ${USERNAME}
