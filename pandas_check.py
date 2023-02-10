@@ -68,3 +68,4 @@ print(instance2)
 # Functions defined inside a class code block are called methods, and the important thing to know about methods is that each time they are called from a class instance, the instance is spliced into the function call as the first argument. This applies to all functions defined in a class, including dunders. (The sole exception is if the function is decorated with something like @classmethod or @staticmethod).
 
 
+

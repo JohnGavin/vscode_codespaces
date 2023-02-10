@@ -21,13 +21,13 @@ pd$show_versions()
 
 os <- import("os")
 os$listdir(".")
-pd <- import("pandas")
+# pd <- import("pandas")
 # pd$__version__
 #scipy <- import("scipy")
 #scipy$amin(c(1,3,5,7))
 
 repl_python()
-exit # or quit - NOT exit()
+exit # or quit - NOT exit() 
 # import pandas
 
 
